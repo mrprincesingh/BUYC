@@ -1,8 +1,14 @@
 const CarModel = require("../models/CarModels");
 const User = require("../models/UserModels");
+const cloudinary= require("cloudinary");
 const ApiFeatures = require("../utils/apifeatures");
 exports.createCar = async (req, res) => {
   try {
+    const myCloud= await cloudinary.v2.uploader.upload(req.body.avatar, {
+      folder: "Cars",
+      width:150,
+      crop:"scale",
+    });
     const newCarData = {
       carName:req.body.carName,
       modelName:req.body.modelName,
@@ -23,8 +29,8 @@ exports.createCar = async (req, res) => {
       RegistrationPlace:req.body.RegistrationPlace,
       discription:req.body.discription,
       image: {
-        public_id: "public",
-        url: "req.body",
+        public_id: myCloud.public_id,
+        url: myCloud.secure_url,
       },
       owner: req.user._id,
     };
