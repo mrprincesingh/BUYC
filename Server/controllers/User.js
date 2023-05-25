@@ -1,3 +1,4 @@
+
 const User = require("../models/UserModels");
 const cloudinary= require("cloudinary");
 exports.register = async (req, res) => {
@@ -74,3 +75,11 @@ exports.Logout = async (req,res)=>{
     message: "Logged Out",
   });
 }
+
+// exports.GetallCars = async (req,res)=>{
+  
+//    const Car = await CarModel.find()
+//    res.status(200).json({success: true,Car})
+//  }
+
+

@@ -2,6 +2,7 @@ const CarModel = require("../models/CarModels");
 const User = require("../models/UserModels");
 const cloudinary= require("cloudinary");
 const ApiFeatures = require("../utils/apifeatures");
+const UserModels = require("../models/UserModels");
 exports.createCar = async (req, res) => {
   try {
     const myCloud= await cloudinary.v2.uploader.upload(req.body.avatar, {
@@ -118,3 +119,14 @@ exports.getProductDetails= async(req,res)=>{
   })
 
 }
+
+exports.getUserCarPost = async(req , res)=>{
+  const userdata = await User.findById(req.user._id).populate("cars")
+  res.status(200).json({
+    success: true,
+    userdata,
+})
+
+
+}
+
