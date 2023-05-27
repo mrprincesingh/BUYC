@@ -1,22 +1,24 @@
 import React from 'react'
 import "./Navbar.css"
+import { Link, NavLink } from 'react-router-dom'
 const Navbar = () => {
   return (
     <div>
         <nav id="navbar" class="">
   <div class="nav-wrapper">
     {/* <!-- Navbar Logo --> */}
+    <Link to="/">
     <div class="logo">
    {/* //   Logo Placeholder for Inlustration  */}
       <a><i class="fas fa-chess-knight"></i> BYUC</a>
     </div>
-
+    </Link>
     {/* <!-- Navbar Links --> */}
     <ul id="menu">
-      <li><a>Home</a></li>
-   <li><a >Sign Up</a></li>
-   <li><a>Profile</a></li>
-   <li><a>Logout</a></li>
+     <Link to="/"> <li><a>Home</a></li></Link>
+     <Link to="/signup"><li><a >Sign Up</a></li></Link>
+     <Link to="/profile"><li><a>Profile</a></li></Link>
+  
     </ul>
   </div>
 </nav>
@@ -31,10 +33,10 @@ const Navbar = () => {
 
 <div class="overlay-menu">
   <ul id="menu">
-      <li><a href="#home">Home</a></li>
-      <li><a href="#services">Services</a></li>
-      <li><a href="#about">About</a></li>
-      <li><a href="#contact">Contact</a></li>
+  <Link to="/"> <li><a>Home</a></li></Link>
+     <Link to="/signup"><li><a >Sign Up</a></li></Link>
+     <Link to="/profile"><li><a>Profile</a></li></Link>
+   
     </ul>
 </div>
     </div>
